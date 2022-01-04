@@ -32,7 +32,9 @@ def clean_education(x):
 
 @st.cache
 def load_data():
-    df = pd.read_csv("survey_results_public.csv")
+    url='https://drive.google.com/file/d/1lCmVAKPBaIKc_Up8e3gCVufRuXIxINDo/view?usp=sharing'
+    url='https://drive.google.com/uc?id=' + url.split('/')[-2]
+    df = pd.read_csv(url)
     df = df[["Country", "EdLevel", "YearsCodePro", "Employment", "ConvertedComp"]]
     df = df[df["ConvertedComp"].notnull()]
     df = df.dropna()
